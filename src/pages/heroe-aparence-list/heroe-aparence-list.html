@@ -1,0 +1,26 @@
+<!--
+  Generated template for the HeroeAparenceListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Heroe Appearance</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- *ngIf="appearances" check if appearances != null -->
+  <ion-card *ngIf="appearances">
+    <ion-card-header>
+        Appearances
+    </ion-card-header>
+    <ion-card-content *ngFor="let appearance of appearances">
+        {{ appearance }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

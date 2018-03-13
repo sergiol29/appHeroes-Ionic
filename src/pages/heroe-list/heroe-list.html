@@ -1,0 +1,30 @@
+<!--
+  Generated template for the HeroeListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Heroes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let heroe of heroes">
+      <ion-avatar item-start>
+        <img src="{{ heroe.main_image }}">
+      </ion-avatar>
+      <h2>{{ heroe.name }}</h2>
+      <h3>{{ heroe.real_name }}</h3>
+      <p>{{ heroe.powers }}</p>
+      <button ion-button round (tap)="getDetails(heroe)">More info</button>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>
