@@ -1,3 +1,3 @@
 export const CONFIG = { 
-    API_URL: "http://9816fcdb.ngrok.io",
+    API_URL: "http://dd72cfa7.ngrok.io",
 }

@@ -23,4 +23,11 @@
         {{ appearance }}
     </ion-card-content>
   </ion-card>
+
+  <ion-fab bottom right>
+    <!-- Only icon (no text) -->
+    <button ion-fab mini icon-only (tap)="openModal(idHeroe)">
+      <ion-icon name="add-circle"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>
