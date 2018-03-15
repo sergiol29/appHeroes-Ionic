@@ -1,4 +1,5 @@
 <!-- Generated template for the CommentsComponent component -->
+<ion-content>
 <ion-card>
   <ion-card-header>
       Comment
@@ -7,3 +8,8 @@
       {{ comment }}
   </ion-card-content>
 </ion-card>
+
+<button ion-button icon-left (tap)="openModal(idHeroe)">
+    <ion-icon name="add-circle"></ion-icon>
+    Add Comment
+</button>

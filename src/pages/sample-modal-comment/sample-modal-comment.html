@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>sampleModalComment</ion-title>
+    <ion-title>add Comment</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,4 +15,47 @@
 
 <ion-content padding>
  <!-- formulario con un textarea y una validacion de max lenght 128 caracteres -->
+
+ <ion-content padding>
+  <ion-card *ngIf="form">
+    <ion-card-content>
+        
+        <form novalidate [formGroup]="form" (ngSubmit)="onSubmit(idHeroe)">
+            <ion-list>
+              <ion-item>
+                <ion-label color="primary">Comment</ion-label>
+                <ion-textarea formControlName="comment"> </ion-textarea>
+              </ion-item>
+
+              <ion-item class="alert alert-danger" *ngIf="form.get('comment').hasError('required') && form.get('comment').touched 
+                                                        || ( form.get('comment').hasError('maxlength') || form.get('comment').hasError('minlength') )">
+                  <p style="color:darkred">Comment <strong>is required</strong>, <strong>max length 128 caracter</strong> and <strong>min length 10 caracter</strong></p>
+              </ion-item>
+
+            </ion-list>
+
+            <div padding>
+                <button ion-button block icon-right [disabled]="form.invalid">
+                  Send
+                  <ion-icon name="arrow-dropright-circle"></ion-icon>
+                </button>
+            </div>
+            <!--<div padding>
+              <button ion-button color="danger" block icon-left (tap)="closeModal()">
+                <ion-icon name="close-circle"></ion-icon>
+                Close
+              </button>
+            </div>-->
+        </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab bottom right>
+    <button ion-fab mini color="danger" (tap)="closeModal()">
+      <ion-icon name="close-circle"></ion-icon>
+    </button>
+  </ion-fab>
+  <!--<div *ngIf="form">
+      {{ form.value | json }}
+  </div>-->
 </ion-content>

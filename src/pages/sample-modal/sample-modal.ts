@@ -37,6 +37,7 @@ export class SampleModalPage {
     console.log('ionViewDidLoad SampleModalPage');
     this.idHeroe = this.navParams.get('idHeroe');
 
+    /* Create form */
     this.form = this.fb.group({
       year: [2001, Validators.required],
       appearance: ['', Validators.required],

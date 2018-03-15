@@ -47,6 +47,12 @@
           <ion-icon name="person"></ion-icon>
           <div>Appearance</div>
         </button>
+
+        <!-- tap is event click, call a function getAppearance in heroeDetails.ts -->
+        <button ion-button icon-left clear small (tap)="getFight(heroe.id)">
+            <ion-icon name="person"></ion-icon>
+            <div>Fight</div>
+          </button>
       </ion-col>
     </ion-row>
   

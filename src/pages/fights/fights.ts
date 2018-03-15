@@ -6,7 +6,7 @@ import { HeroesProvider } from '../../providers/heroes/heroes';
 import { LoadingController } from 'ionic-angular';
 
 /**
- * Generated class for the HeroeListPage page.
+ * Generated class for the FightsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,17 +14,22 @@ import { LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-heroe-list',
-  templateUrl: 'heroe-list.html',
+  selector: 'page-fights',
+  templateUrl: 'fights.html',
 })
-export class HeroeListPage {
-  heroes: any;
+export class FightsPage {
+
+  heroeFights: any;
+  idHeroe: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     private heroesProv: HeroesProvider, private loadingCtrl: LoadingController) {
   }
 
-  ionViewWillLoad() {
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad FightsPage');
+    this.idHeroe = this.navParams.get('heroe');
+
     /* Create loading spinner */
     let loader = this.loadingCtrl.create({
       content: 'Please wait...',
@@ -33,20 +38,17 @@ export class HeroeListPage {
     /* Show loading spinner */
     loader.present().then(() => {
       /* get Data of API */
-      this.heroesProv.getAll().subscribe(
+      this.heroesProv.getFights(this.idHeroe).subscribe(
           (data) => {
-            this.heroes = data;
+            this.heroeFights = data;
             /* Hide loading spinner */
             loader.dismiss();
             //console.log(data);
           }
       );
     });
+
+
   }
 
-  /* When tap in buttom, send a HeroeDetailPage the ID of heroe and location this page */
-  getDetails(heroe) {
-    //console.log(heroe);
-    this.navCtrl.push('HeroeDetailPage', { heroe: heroe });
-  }
 }

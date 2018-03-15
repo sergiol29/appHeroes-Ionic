@@ -27,6 +27,19 @@ export class HeroesProvider {
     return this.http.get(url);
   }
 
+  /* set comment of heroe in API */
+  setComment(idHeroe: number, data: any) {
+    const url = `${CONFIG.API_URL}/heros/${idHeroe}/comments`;
+    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+
+    return this.http.post(url, data, httpOptions);
+  }
+
   /* get appearance of heroe in API */
   getAppearance(idHeroe: number) {
     const url = `${CONFIG.API_URL}/heros/${idHeroe}/appearances`;
@@ -46,17 +59,10 @@ export class HeroesProvider {
     return this.http.post(url, data, httpOptions);
   }
 
-  /* set comment of heroe in API */
-  setComment(idHeroe: number, data: any) {
-    const url = `${CONFIG.API_URL}/heros/${idHeroe}/comments`;
-    
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-      })
-    };
-
-    return this.http.post(url, data, httpOptions);
+  /* get appearance of heroe in API */
+  getFights(idHeroe: number) {
+    const url = `${CONFIG.API_URL}/heros/${idHeroe}/fights`;
+    return this.http.get(url);
   }
 
 }

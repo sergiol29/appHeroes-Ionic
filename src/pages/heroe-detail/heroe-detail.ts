@@ -37,4 +37,9 @@ export class HeroeDetailPage {
     this.navCtrl.push('HeroeAparenceListPage', { heroe: heroe });
   }
 
+  /* When tap in buttom, send a FightsPage the ID of heroe and location this page */
+  getFight(heroe: number) {
+    this.navCtrl.push('FightsPage', { heroe: heroe });
+  }
+
 }
